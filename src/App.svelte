@@ -1,87 +1,84 @@
 <script lang="ts">
   import { onMount } from 'svelte';
 
+  // Draggable 
+  import { draggable } from '@neodrag/svelte';
+  import type { DragOptions } from '@neodrag/svelte';
+
+  const dragOptions: DragOptions = {
+    axis: 'both',
+    bounds: 'parent',
+    gpuAcceleration: false,
+    onDragStart: (e) => {
+      onDragStart(e);
+    },
+  }
+  let currentZindex: number = 1;
+
+  const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
+
   onMount(async () => {
     const cards: NodeList = document.querySelectorAll('.card');
-    const windowWidth: number = screen.width;
-    const windowHeight: number = screen.height; 
-    
-    console.log(windowHeight, windowWidth);
+    const windowWidth: number = window.innerWidth - 370;
+    const windowHeight: number = window.innerHeight - 170;  
+
     cards.forEach((element: HTMLElement) => {
-      //const randomX = Math
-      element.addEventListener('dragstart', dragStart);
-      element.addEventListener('dragenter', dragEnter)
-      element.addEventListener('dragover', dragOver);
-      element.addEventListener('dragend', dragEnd);
-      console.log(element);
-      const rect = element.getBoundingClientRect();
-      console.log(rect);
-      /*return {
-        left: rect.left + window.scrollX,
-        top: rect.top + window.scrollY
-      };*/
-        });
+      element.style.top = getRandom(0, windowHeight) + 'px';
+      element.style.left = getRandom(0, windowWidth) + 'px';
+      const rect = element.getBoundingClientRect();      
+      //currentZindex++;
+    })
   })
 
-  function dragStart(e) {
-  console.log(e);
-  
-}
-
-function dragEnd(e) {
-  //this.className = "fill";
-  console.log(e);
-  console.log('end')
-  changePosition(e, e.screenX, e.screenY);
-}
-
-function dragOver(e) {
-  e.preventDefault();
-  console.log(e);
-}
-
-function dragEnter(e) {
-  e.preventDefault();
-  //this.className += " hovered";
-  console.log(e);
-}
-
-function changePosition(element, positionX, positionY) {
-  element.style('top', positionY);
-  element.style('left', positionX);
-}
+  function onDragStart(element) {
+    console.log(element)
+  }
 
 </script>
 
 <main class="main-container">
-  <div class="flex-row center title">
-    <h2>Varewyck Tom</h2>
-  </div>
-  <div class="content">
-    <div class="card" id="experiences" draggable="true">
-      <h3>Expériences</h3>
+  <div class="flex-row full-height content">
+    <div class="card" id="experiences" use:draggable={dragOptions}>
+      <h3>Profil</h3>
+      <div class="separator"></div>
+      <p>Varewyck Tom</p>
+      <p>Développeur Full Stack</p>
+      <a href="https://www.linkedin.com/in/tom-varewyck-26a51a11a/">Profil LinkedIn</a>
     </div>
+
+    <div class="card" id="experiences" use:draggable={dragOptions}>
+      <h3>Expériences</h3>
+      <div class="separator"></div>
+    </div>
+
+    <div class="card" id="experiences" use:draggable={dragOptions}>
+      <h3>Compétences</h3>
+      <div class="separator"></div>
+    </div>
+
+    <div class="card" id="experiences" use:draggable={dragOptions}>
+      <h3>Formations</h3>
+      <div class="separator"></div>
+    </div>
+  </div>
+  
     <!--<div class="card" id="formations">
       <h3>Formations</h3>
     </div>-->
-  </div>
 </main>
 
 <style lang="scss">
   @import 'src/styles/colors';
 
-  .title {
-    color: $white;
-    font-size: 32px;
-  }
-
   .content {
-    margin: 20px;
+    overflow: hidden;
+    height: calc(100% - 20px);
     padding: 10px;
     .card {
       position: absolute;
       border-radius: 12px;
       padding: 10px 15px;
+
       height: 150px;
       width: 350px;
       background: $white;
@@ -92,4 +89,5 @@ function changePosition(element, positionX, positionY) {
       }
     }
   }
+  
 </style>
