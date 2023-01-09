@@ -12,7 +12,7 @@
   type Card = {
     title: string;
     content: string;
-    subTitle: string; 
+    subTitle?: string; 
     duration?: string;
   }
 
@@ -22,7 +22,8 @@
 
   const cards: Card[] = [
     { title: 'coucou', subTitle: 'subcoucou', content: 'coucou content', duration: 'Juin' },
-    { title: 'hello', subTitle: 'subhello', content: 'hello content' }
+    { title: 'hello', subTitle: 'subhello', content: 'hello content' },
+    { title: 'Formations', duration: 'Septembre 2017 - Juin 2020', content: "Ecole Pratique Hautes Etudes Commerciales Bachelier, Technologie de l'informatique" }
   ];
 
   onMount(async () => {
@@ -71,13 +72,13 @@
       </div>
     </div>
 
-    {#each cards as card }
+    <!-- {#each cards as card }
       <Card bind:card />
       <div class="card" id="experiences" use:draggable={dragOptions} >
         <div class="header"></div>
         <div class="card-content">{card.title}</div>
       </div>
-    {/each}
+    {/each} -->
     <!-- <div class="card" id="experiences" on:click={onSetBoxToTop} >
       <div class="header" use:draggable={{...dragOptions }}></div>
       <div class="card-content">
@@ -115,14 +116,7 @@
       <h3>Compétences</h3>
     </div>
 
-    <div class="card" id="formations" use:draggable={dragOptions} on:click={onSetBoxToTop}>
-      <h3>Formations</h3>
-      <span class="duration">Septembre 2017 - Juin 2020</span>
-      <p>
-        Ecole Pratique Hautes Etudes Commerciales
-        Bachelier, Technologie de l'informatique
-      </p>
-    </div> -->
+     -->
   </div>
 </main>
 
