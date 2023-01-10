@@ -4,6 +4,7 @@
   // Assets
   import AtSign from './assets/at-sign.svg';
   import LinkedIn from './assets/linkedin.svg';
+  import Github from './assets/github.svg';
 
   // Components
   import Card from './lib/Card.svelte';
@@ -62,12 +63,12 @@
       <p>Full Stack Developer</p>
       <div class="flex-row personnal-infos">
         <div class="flex-column">
-          <a href="mailto:varewycktom@gmail.com">
-            <img src={AtSign} alt="email sign icon">
+          <a href="https://github.com/VareTom" target="_blank" rel="noreferrer">
+            <img src={Github} alt="github icon">
           </a>
         </div>
         <div class="flex-column">
-          <a href="https://www.linkedin.com/in/tom-varewyck-26a51a11a/">
+          <a href="https://www.linkedin.com/in/tom-varewyck-26a51a11a/" target="_blank" rel="noreferrer">
             <img src={LinkedIn} alt="linkedin icon">
           </a>
         </div>

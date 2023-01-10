@@ -124,9 +124,10 @@ body {
       cursor: pointer;
       height: 35px;
       width: 35px;
+      transition: transform ease-in-out .3s;
 
       &:hover {
-        transform: scale(1.1);
+        transform: scale(1.2);
       }
     }
 
