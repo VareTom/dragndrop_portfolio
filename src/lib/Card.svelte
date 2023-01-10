@@ -13,6 +13,8 @@
     axis: 'both',
     bounds: 'body',
     gpuAcceleration: false,
+    handle: '.header',
+    disabled: window.innerWidth < 750,
     onDrag: () => {
       const windowHeight: number = window.innerHeight; 
       const draggingCard: Element = document.querySelector('.card.neodrag.neodrag-dragging');
