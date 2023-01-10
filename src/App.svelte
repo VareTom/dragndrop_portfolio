@@ -7,22 +7,23 @@
 
   // Components
   import Card from './lib/Card.svelte';
-
-  // Custom Types 
-  type Card = {
-    title: string;
-    content: string;
-    subTitle?: string; 
-    duration?: string;
-  }
+  
+  // Types
+  import type { CardType } from './types/card-type';
 
   const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
 
-  const cards: Card[] = [
+  const cards: CardType[] = [
     { title: 'Education', duration: 'September 2017 - June 2020', content: "Bachelor, IT @ EPHEC" },
     { title: 'Full Stack Developer @ Underside', duration: 'June 2021 - now()', content: "Mobile applications & CMS development for different type of sector. Angular, NodeJS, Ionic, Python, Linux & MacOS" },
-    { title: 'Soft Skills', subTitle: '', content: ""},
     { title: 'Front-End Developer @ Inforius', duration: 'August 2020 - June 2021', content: "Development of CMS with the aim of digitizing the various services of Belgian communal establishments. Angular, Kotlin & Azure" },
+    { title: 'Language Skills', columns: [{key: 'English', value: 'Notions'},{key: 'French', value: 'Mother tongue'}]},
+    { title: 'Soft Skills', columns: [
+      {key: 'Angular', value: '2.5 ans'},{key: 'NodeJs', value: '2 ans'},
+      {key: 'Ionic', value: '1.5 an'},{key: 'Python', value: '1.5 an'},
+      {key: 'NestJs', value: '1 an'},{key: 'Linux', value: '4 ans'},
+      {key: 'Docker', value: '2 ans'},{key: 'Azure', value: '1 an'}
+    ]},
   ];
 
   onMount(async () => {
@@ -51,7 +52,6 @@
 </script>
 
 <main class="main-container">
-  
   <div class="flex-row full-height center content">
     <div class="card" id="profile">
       <h1>Varewyck Tom</h1>
@@ -70,7 +70,7 @@
       </div>
     </div>
 
-    {#each cards as card }
+    {#each cards as card}
       <Card bind:card />
     {/each}
   </div>
@@ -90,5 +90,4 @@
       text-align: center;
     }
   }
-  
 </style>

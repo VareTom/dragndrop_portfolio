@@ -1,5 +1,9 @@
 <script lang="ts">
-  export let card: any;
+
+  // Types
+  import type { CardType } from '../types/card-type';
+
+  export let card: CardType;
 
   // Draggable 
   import { draggable } from '@neodrag/svelte';
@@ -27,12 +31,27 @@
   <div class="header"></div>
   <div class="content">
     <h3>{card.title}</h3>
-    {#if card.subTitle}
-      <span class="sub-title">{card.subTitle}</span>
-    {/if}
     {#if card.duration}
       <span class="duration">{card.duration}</span>
     {/if}
-    <p>{card.content}</p>
+    {#if card.content}
+      <p>{card.content}</p>
+    {/if}
+    {#if card.columns && card.columns.length > 0}
+      {#each card.columns as column}
+        <div class="flex-row skills">
+          <div class="flex-column">{column.key}</div>
+          <div class="flex-column">{column.value}</div>
+        </div>
+      {/each}
+    {/if}
   </div>
 </div>
+
+<style lang="scss">
+  .skills {
+    justify-content: space-between;
+    width: 200px;
+    margin-top: 5px;
+  }
+</style>
