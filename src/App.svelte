@@ -32,23 +32,25 @@
     const windowWidth: number = window.innerWidth;
     const windowHeight: number = window.innerHeight;  
 
-    cards.forEach((element: HTMLElement, index: number) => {
-      if (index === 0) {
-        const elementDimension = element.getBoundingClientRect();
-        element.style.top = ((windowHeight / 2) - (elementDimension.height / 2)) + 'px';
-        element.style.left = ((windowWidth / 2) - (elementDimension.width / 2)) + 'px';
-      } else {
-        element.style.top = getRandom(0, windowHeight - 150) + 'px';
-        element.style.left = getRandom(0, windowWidth - 350) + 'px';
-        const elementDimension = element.getBoundingClientRect();
-
-        if (elementDimension.y > windowHeight / 2) {
-          element.classList.add('lighter');
+    if (windowWidth > 750) {
+      cards.forEach((element: HTMLElement, index: number) => {
+        if (index === 0) {
+          const elementDimension = element.getBoundingClientRect();
+          element.style.top = ((windowHeight / 2) - (elementDimension.height / 2)) + 'px';
+          element.style.left = ((windowWidth / 2) - (elementDimension.width / 2)) + 'px';
         } else {
-          element.classList.remove('lighter');
+          element.style.top = getRandom(0, windowHeight - 150) + 'px';
+          element.style.left = getRandom(0, windowWidth - 350) + 'px';
+          const elementDimension = element.getBoundingClientRect();
+
+          if (elementDimension.y > windowHeight / 2) {
+            element.classList.add('lighter');
+          } else {
+            element.classList.remove('lighter');
+          }
         }
-      }
-    })
+      })
+    }
   })
 </script>
 
