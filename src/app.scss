@@ -147,6 +147,7 @@ h3 {
     display: flex;
     flex-direction: column;
     overflow-y: auto !important;
+    justify-content: flex-start !important;
     gap: 5px;
     .card {
       min-width: calc(100% - 10px) !important;
