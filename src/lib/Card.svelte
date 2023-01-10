@@ -51,7 +51,7 @@
 <style lang="scss">
   .skills {
     justify-content: space-between;
-    width: 200px;
+    width: 250px;
     margin-top: 5px;
   }
 </style>
