@@ -9,20 +9,17 @@
     axis: 'both',
     bounds: 'body',
     gpuAcceleration: false,
-    onDrag: (e) => {
+    onDrag: () => {
       const windowHeight: number = window.innerHeight; 
-      const draggingCard = document.querySelector('.card.neodrag.neodrag-dragging');
-      const cardDimension = draggingCard.getBoundingClientRect();
-  
+      const draggingCard: Element = document.querySelector('.card.neodrag.neodrag-dragging');
+      const cardDimension: DOMRect = draggingCard.getBoundingClientRect();
+      
       if (cardDimension.y > windowHeight / 2) {
         draggingCard.classList.add('lighter');
       } else {
         draggingCard.classList.remove('lighter');
       }
     }
-    // onDragStart: (e) => {
-    // console.log(e);
-    // }
   }
 </script>
 

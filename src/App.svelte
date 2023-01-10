@@ -2,7 +2,6 @@
   import { onMount } from 'svelte';
 
   // Assets
-  import AtSign from './assets/at-sign.svg';
   import LinkedIn from './assets/linkedin.svg';
   import Github from './assets/github.svg';
 
@@ -49,10 +48,6 @@
       }
     })
   })
-
-  function onDragStart(event) {
-    console.log(event)
-  }
 </script>
 
 <main class="main-container">

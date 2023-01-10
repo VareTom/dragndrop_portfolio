@@ -76,7 +76,7 @@ body {
   -webkit-backdrop-filter: blur(4px);
 
   &.neodrag-dragging {
-    z-index: 10 !important;
+    z-index: 500;
   }
 
   &.lighter {
