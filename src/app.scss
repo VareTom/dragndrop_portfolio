@@ -7,8 +7,6 @@
 * {
   margin: 0;
   padding: 0;
-
-  transition: all ease-in-out .3s;
 }
 
 html,
@@ -64,22 +62,44 @@ body {
 } 
 
 .card {
+  transition: box-shadow ease-in-out .3s, color ease-in-out .3s;
   position: absolute;
+  z-index: 5;
   border-radius: 12px;
   max-width: 350px;
   min-width: 150px;
-  background: $white;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+
+  color: $white;
+  box-shadow: rgba($font, 0.1) 0px 10px 15px -3px, rgba($font, 0.05) 0px 4px 6px -2px;
+  background: rgba($white, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  &.neodrag-dragging {
+    z-index: 10 !important;
+  }
+
+  &.lighter {
+    .duration {
+      color: $bg-light;
+    }
+    .header {
+      background: $bg-light;
+    }
+  }
+
+  .header, .duration {
+    transition: color ease-in-out .5s, background ease-in-out .5s;
+  }
 
   .header {
     border-top-left-radius: 12px;
     border-top-right-radius: 12px;
     height: 20px;
-    background: lightgray;
-    cursor: grab;
+    background: rgba($bg-dark, 0.5);
   }
 
-  .card-content {
+  .content {
     margin: 10px 15px;
   }
   
@@ -88,7 +108,7 @@ body {
   }
 
   .duration {
-    color: $bg-light;
+    color: rgba($bg-dark, 0.5);
     font-size: 14px;
   }
 

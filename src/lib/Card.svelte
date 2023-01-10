@@ -1,6 +1,5 @@
 <script lang="ts">
   export let card: any;
-  $: console.log(card);
 
   // Draggable 
   import { draggable } from '@neodrag/svelte';
@@ -10,24 +9,33 @@
     axis: 'both',
     bounds: 'body',
     gpuAcceleration: false,
-    onDragStart: (e) => {
-      onDragStart(e);
-    },
+    onDrag: (e) => {
+      const windowHeight: number = window.innerHeight; 
+      const draggingCard = document.querySelector('.card.neodrag.neodrag-dragging');
+      const cardDimension = draggingCard.getBoundingClientRect();
+  
+      if (cardDimension.y > windowHeight / 2) {
+        draggingCard.classList.add('lighter');
+      } else {
+        draggingCard.classList.remove('lighter');
+      }
+    }
+    // onDragStart: (e) => {
+    // console.log(e);
+    // }
   }
-
-  function onDragStart(element) {
-    console.log(element)
-  }
-
 </script>
 
 <div class="card" id="formations" use:draggable={dragOptions}>
-  <h3>{card.title}</h3>
-  {#if card.subTitle}
-    <span class="sub-title">{card.subTitle}</span>
-  {/if}
-  {#if card.duration}
-    <span class="duration">{card.duration}</span>
-  {/if}
-  <p class="content">{card.content}</p>
+  <div class="header"></div>
+  <div class="content">
+    <h3>{card.title}</h3>
+    {#if card.subTitle}
+      <span class="sub-title">{card.subTitle}</span>
+    {/if}
+    {#if card.duration}
+      <span class="duration">{card.duration}</span>
+    {/if}
+    <p>{card.content}</p>
+  </div>
 </div>

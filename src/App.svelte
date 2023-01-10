@@ -16,14 +16,13 @@
     duration?: string;
   }
 
-  let currentZindex: number = 1;
-
   const getRandom = (min, max) => Math.floor(Math.random()*(max-min+1)+min);
 
   const cards: Card[] = [
-    { title: 'coucou', subTitle: 'subcoucou', content: 'coucou content', duration: 'Juin' },
-    { title: 'hello', subTitle: 'subhello', content: 'hello content' },
-    { title: 'Formations', duration: 'Septembre 2017 - Juin 2020', content: "Ecole Pratique Hautes Etudes Commerciales Bachelier, Technologie de l'informatique" }
+    { title: 'Education', duration: 'September 2017 - June 2020', content: "Bachelor, IT @ EPHEC" },
+    { title: 'Full Stack Developer @ Underside', duration: 'June 2021 - now()', content: "Mobile applications & CMS development for different type of sector. Angular, NodeJS, Ionic, Python, Linux & MacOS" },
+    { title: 'Soft Skills', subTitle: '', content: ""},
+    { title: 'Front-End Developer @ Inforius', duration: 'August 2020 - June 2021', content: "Development of CMS with the aim of digitizing the various services of Belgian communal establishments. Angular, Kotlin & Azure" },
   ];
 
   onMount(async () => {
@@ -37,19 +36,22 @@
         element.style.top = ((windowHeight / 2) - (elementDimension.height / 2)) + 'px';
         element.style.left = ((windowWidth / 2) - (elementDimension.width / 2)) + 'px';
       } else {
-        element.style.top = getRandom(0, windowHeight) + 'px';
-        element.style.left = getRandom(0, windowWidth) + 'px';
-        const rect = element.getBoundingClientRect();
+        element.style.top = getRandom(0, windowHeight - 150) + 'px';
+        element.style.left = getRandom(0, windowWidth - 350) + 'px';
+        const elementDimension = element.getBoundingClientRect();
+
+        if (elementDimension.y > windowHeight / 2) {
+          element.classList.add('lighter');
+        } else {
+          element.classList.remove('lighter');
+        }
       }
     })
   })
 
-  function onSetBoxToTop(e) {
-    console.log(e)
-    e.target.style.zIndex = currentZindex;
-    currentZindex++;
+  function onDragStart(event) {
+    console.log(event)
   }
-
 </script>
 
 <main class="main-container">
@@ -57,7 +59,7 @@
   <div class="flex-row full-height center content">
     <div class="card" id="profile">
       <h1>Varewyck Tom</h1>
-      <p>Développeur Full Stack</p>
+      <p>Full Stack Developer</p>
       <div class="flex-row personnal-infos">
         <div class="flex-column">
           <a href="mailto:varewycktom@gmail.com">
@@ -72,51 +74,9 @@
       </div>
     </div>
 
-    <!-- {#each cards as card }
+    {#each cards as card }
       <Card bind:card />
-      <div class="card" id="experiences" use:draggable={dragOptions} >
-        <div class="header"></div>
-        <div class="card-content">{card.title}</div>
-      </div>
-    {/each} -->
-    <!-- <div class="card" id="experiences" on:click={onSetBoxToTop} >
-      <div class="header" use:draggable={{...dragOptions }}></div>
-      <div class="card-content">
-        <h3>Expériences</h3>
-        <div class="experience">
-          Underside - Développeur Full Stack
-          <span class="duration">Juin 2021 - now()</span>
-          Développement d’application mobile et CMS
-          pour différents clients.
-          Angular, NodeJS, Ionic, Python, Linux & MacOS
-        </div>
-  
-        <div class="experience">
-          Inforius - Développeur de logiciel
-          <span class="duration">Août 2020 - Juin 2021</span>
-          Développement de CMS dans le but de
-          numériser les différents services des
-          établissements communaux belges.
-          Angular, Kotlin & Azure
-        </div>
-  
-        <div class="experience">
-          IT-School - Stagiaire - Développeur Full Stack
-          <span class="duration">Février 2020 - Avril 2020</span>
-          Intégration de nouvelles fonctionnalités dans la
-          plateforme web permettant aux établissements
-          scolaires de passer au numérique.
-          Symfony, HTML5, CSS3, JavaScript, jQuery, Ajax,
-          RESTful & Github
-        </div>
-      </div>
-    </div> -->
-
-    <!-- <div class="card" id="skills" use:draggable={dragOptions} on:click={onSetBoxToTop}>
-      <h3>Compétences</h3>
-    </div>
-
-     -->
+    {/each}
   </div>
 </main>
 
@@ -131,6 +91,7 @@
     #profile {
       z-index: 10000;
       padding: 20px;
+      text-align: center;
     }
   }
   
