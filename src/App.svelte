@@ -15,7 +15,8 @@
 
   const cards: CardType[] = [
     { title: 'Education', duration: 'September 2017 - June 2020', content: "Bachelor, IT @ EPHEC" },
-    { title: 'Full Stack Developer @ Underside', duration: 'June 2021 - now()', content: "Mobile applications & CMS development for different type of sector. Angular, NodeJS, Ionic, Python, Linux & MacOS" },
+    { title: 'Front-End Developer @ ID Weaver', duration: 'March 2023 - now()', content: 'Front End development for different client.'},
+    { title: 'Full Stack Developer @ Underside', duration: 'June 2021 - March 2023', content: "Mobile applications & CMS development for different type of sector. Angular, NodeJS, Ionic, Python, Linux & MacOS" },
     { title: 'Front-End Developer @ Inforius', duration: 'August 2020 - June 2021', content: "Development of CMS with the aim of digitizing the various services of Belgian communal establishments. Angular, Kotlin & Azure" },
     { title: 'Application Development Internship @ IT-School', duration: 'February 2020 - April 2020', content: "Integration of new functionalities in the web platform allowing establishments schools to go digital. Symfony, HTML5, CSS3, JavaScript, jQuery, Ajax, RESTful & Github" },
     { title: 'Language Skills', columns: [{key: 'English', value: 'Notions'},{key: 'French', value: 'Mother tongue'}]},
