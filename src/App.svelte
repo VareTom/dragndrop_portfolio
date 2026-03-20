@@ -15,16 +15,20 @@
 
   const cards: CardType[] = [
     { title: 'Education', duration: 'September 2017 - June 2020', content: "Bachelor, IT @ EPHEC" },
-    { title: 'Front-End Developer @ ID Weaver', duration: 'March 2023 - now()', content: 'Front End development for different client.'},
-    { title: 'Full Stack Developer @ Underside', duration: 'June 2021 - March 2023', content: "Mobile applications & CMS development for different type of sector. Angular, NodeJS, Ionic, Python, Linux & MacOS" },
-    { title: 'Front-End Developer @ Inforius', duration: 'August 2020 - June 2021', content: "Development of CMS with the aim of digitizing the various services of Belgian communal establishments. Angular, Kotlin & Azure" },
-    { title: 'Application Development Internship @ IT-School', duration: 'February 2020 - April 2020', content: "Integration of new functionalities in the web platform allowing establishments schools to go digital. Symfony, HTML5, CSS3, JavaScript, jQuery, Ajax, RESTful & Github" },
+    { title: 'Full Stack Developer @ Rush Labs', duration: 'May 2024 - Present', content: "Mobile and web application development. D'Ieteren project · MyPop app · Gowlz app. NextJs, NestJs, React Native, tRPC, Prisma ORM, PostgreSQL, Vitest" },
+    { title: 'Angular & NextJs Developer @ IdWeaver', duration: 'March 2023 - May 2024', content: 'Web application development. Edenred web app. Angular, NextJs, GraphQL, Redis' },
+    { title: 'Full Stack Developer @ Underside', duration: 'June 2021 - March 2023', content: "Mobile application and CMS development for various clients. Oxycure · Tribery · Display by Underside. Angular, NodeJS, Ionic, Python, Redis, Linux & MacOS" },
+    { title: 'Software Developer @ Inforius', duration: 'August 2020 - June 2021', content: "CMS development to digitize the services of Belgian municipal institutions. Angular, Kotlin & Azure" },
+    { title: 'Intern Full Stack Developer @ IT-School', duration: 'February 2020 - April 2020', content: "Integration of new features into a web platform enabling schools to go digital. Symfony, HTML5, CSS3, JavaScript, jQuery, Ajax, RESTful & Github" },
     { title: 'Language Skills', columns: [{key: 'English', value: 'Notions'},{key: 'French', value: 'Mother tongue'}]},
-    { title: 'Soft Skills', columns: [
-      {key: 'Angular', value: '2.5 ans'},{key: 'NodeJs', value: '2 ans'},
-      {key: 'Ionic', value: '1.5 an'},{key: 'Python', value: '1.5 an'},
-      {key: 'NestJs', value: '1 an'},{key: 'Linux', value: '4 ans'},
-      {key: 'Docker', value: '2 ans'},{key: 'Azure', value: '1 an'}
+    { title: 'Skills', columns: [
+      {key: 'Angular', value: '3.5 yrs'},{key: 'NextJs', value: '2.5 yrs'},
+      {key: 'NestJs', value: '4 yrs'},{key: 'React Native', value: '2 yrs'},
+      {key: 'Ionic', value: '1.5 yrs'},{key: 'Python', value: '1 yr'},
+      {key: 'Docker', value: '5 yrs'},{key: 'Azure', value: '2 yrs'},
+      {key: 'Redis', value: '1.5 yrs'},{key: 'Prisma ORM', value: '2.5 yrs'},
+      {key: 'GraphQL', value: '2 yrs'},{key: 'tRPC', value: '2 yrs'},
+      {key: 'Vitest', value: '3 yrs'}
     ]},
   ];
 
