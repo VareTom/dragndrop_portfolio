@@ -20,7 +20,7 @@
     { title: 'Full Stack Developer @ Underside', duration: 'June 2021 - March 2023', content: "Mobile application and CMS development for various clients. Oxycure · Tribery · Display by Underside. Angular, NodeJS, Ionic, Python, Redis, Linux & MacOS" },
     { title: 'Software Developer @ Inforius', duration: 'August 2020 - June 2021', content: "CMS development to digitize the services of Belgian municipal institutions. Angular, Kotlin & Azure" },
     { title: 'Intern Full Stack Developer @ IT-School', duration: 'February 2020 - April 2020', content: "Integration of new features into a web platform enabling schools to go digital. Symfony, HTML5, CSS3, JavaScript, jQuery, Ajax, RESTful & Github" },
-    { title: 'Language Skills', columns: [{key: 'English', value: 'Notions'},{key: 'French', value: 'Mother tongue'}]},
+    { title: 'Language Skills', columns: [{key: 'English', value: 'B2'},{key: 'French', value: 'Mother tongue'}]},
     { title: 'Skills', columns: [
       {key: 'Angular', value: '3.5 yrs'},{key: 'NextJs', value: '2.5 yrs'},
       {key: 'NestJs', value: '4 yrs'},{key: 'React Native', value: '2 yrs'},
